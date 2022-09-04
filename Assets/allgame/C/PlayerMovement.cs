@@ -79,15 +79,28 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
         //กระโดด
+
+        animator.SetFloat("yVelocity", rb.velocity.y);
+
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            animator.SetBool("Jump", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
-        else if(Input.GetButtonUp("Jump"))
+
+        if (IsGrounded())
         {
+            animator.SetBool("Grounded", true);
             animator.SetBool("Jump", false);
         }
+        else if (!IsGrounded())
+        {
+            animator.SetBool("Jump", true);
+            animator.SetBool("Grounded", false);
+        }
+        //else if(Input.GetButtonUp("Jump"))
+        //{
+        //    animator.SetBool("Jump", false);
+        //}
         
         //if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         //{

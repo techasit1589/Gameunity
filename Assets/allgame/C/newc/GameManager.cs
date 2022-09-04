@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log(Time.timeScale);
         //ตายแล้วหยุดเกม
-        if(playerMovement.healtbar<=0){
+        if(playerMovement.playerHealth <= 0){
             //Debug.Log("deaded");
             StartCoroutine(ExampleCoroutine());
             

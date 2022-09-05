@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public int scene;
     public GameObject PauseUi;
     public GameObject deadUi;
     PlayerMovement playerMovement;
@@ -45,6 +47,20 @@ public class GameManager : MonoBehaviour
     
         
         
+    }
+    public void Exit()
+    {
+        Application.Quit();
+    }
+    public void Gamestart()
+    {
+        SceneManager.LoadScene(scene);
+    }
+    public void Reset()
+    {
+        SceneManager.LoadScene(scene);
+        Time.timeScale = 1;
+        PauseUi.SetActive(false);
     }
     IEnumerator ExampleCoroutine()
     {

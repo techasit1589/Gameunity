@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //เสียง
+    AudioSource audioSource;
     //หัวใจเลือด
     public int playerHealth;
     [SerializeField] private Image[] hearts;
     //วิ่ง
+    private bool isMoving;
     Animator animator;
     private float horizontal;
     private float speed = 8f;
@@ -41,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         animator = this.gameObject.GetComponent<Animator>();   
         animator.SetBool("Death", false);
         UpdateHealth();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -65,10 +69,33 @@ public class PlayerMovement : MonoBehaviour
         //เดิน
         horizontal = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+        if (rb.velocity.x != 0)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+        //if (isMoving && IsGrounded())
+        //{
+        //    if (!audioSource.isPlaying)
+        //    {
+        //        audioSource.Play();
+        //    }
+        //    else
+        //    {
+        //        audioSource.Stop();
+        //    }
+            
+        //    //soundmanager.PlaySound("walk");
+        //}
+
         //กระโดด
         animator.SetFloat("yVelocity", rb.velocity.y);
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            soundmanager.PlaySound("jump");
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 
@@ -173,12 +200,14 @@ public class PlayerMovement : MonoBehaviour
         {
             playerHealth = playerHealth - 1;
             UpdateHealth();
-            Destroy(other.gameObject);
+            soundmanager.PlaySound("hit");
+            //Destroy(other.gameObject);
         }
         if (playerHealth < 3)
         {
             if (other.gameObject.tag == "healhp")
             {
+                soundmanager.PlaySound("heal");
                 playerHealth = playerHealth + 1;
                 UpdateHealth();
                 Destroy(other.gameObject);

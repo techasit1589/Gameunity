@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,21 +12,33 @@ public class GameManager : MonoBehaviour
     public GameObject deadUi;
     PlayerMovement playerMovement;
     [SerializeField] GameObject Player;
-    
+
+    //จุดเกิดกล่อง
+    private GameObject[] posbox;
+    private Vector3[] rebox;
+
+
     void Awake()
     {
         playerMovement=Player.GetComponent<PlayerMovement>();
         Time.timeScale = 1;
+        posbox = GameObject.FindGameObjectsWithTag("pushable");
+        rebox = new Vector3[posbox.Length];
+        for (int i = 0; i < posbox.Length; i++)
+        {            
+            rebox[i] = posbox[i].transform.position;
+        }
+
     }
     void Update()
     {
-        //Debug.Log(Time.timeScale);
+        //Debug.Log(playerMovement.playerHealth);
         //ตายแล้วหยุดเกม
         if(playerMovement.playerHealth <= 0){
-            //Debug.Log("deaded");
-            StartCoroutine(ExampleCoroutine());
-            
-        }else{
+            Time.timeScale = 0;
+            deadUi.SetActive(true);          
+        }else if(playerMovement.playerHealth <= 3)
+        {
             //Time.timeScale = 1;
             deadUi.SetActive(false);
             if (Input.GetKeyDown(KeyCode.Escape)){
@@ -40,13 +54,8 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1;
                 PauseUi.SetActive(false);
             }
-        }
-        //ui เวลากด esc
-        
-    }
-    
-        
-        
+        }  
+    }  
     }
     public void Exit()
     {
@@ -60,19 +69,19 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(scene);
         Time.timeScale = 1;
-        PauseUi.SetActive(false);
+        PauseUi.SetActive(false);        
     }
-    IEnumerator ExampleCoroutine()
+    public void Resetpoint()
     {
-        //Print the time of when the function is first called.
-        //Debug.Log("Started Coroutine at timestamp : " + Time.time);
-
-        //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(0.3f);
-
-        //After we have waited 5 seconds print the time again.
-        //Debug.Log("Finished Coroutine at timestamp : " + Time.time);
-        Time.timeScale = 0;
-        deadUi.SetActive(true);
+        playerMovement.playerHealth = 3;
+        playerMovement.transform.position = playerMovement.respawnPoint;
+        deadUi.SetActive(false);
+        PauseUi.SetActive(false);
+        playerMovement.UpdateHealth();
+        Time.timeScale = 1;
+        for (int i = 0; i < posbox.Length; i++)
+        {
+            posbox[i].transform.position = rebox[i];
+        }
     }
 }

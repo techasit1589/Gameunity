@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.UI;
 //using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //ปุ่มแดงน้ำเงิน
+    public int redOrblue= 1;
+      
+    //จุดเกิด
+    public Vector3 respawnPoint;
+
     //เสียง
     AudioSource audioSource;
     //หัวใจเลือด
     public int playerHealth;
     [SerializeField] private Image[] hearts;
     //วิ่ง
-    private bool isMoving;
+    //private bool isMoving;
     Animator animator;
     private float horizontal;
     private float speed = 8f;
@@ -45,10 +52,13 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("Death", false);
         UpdateHealth();
         audioSource = GetComponent<AudioSource>();
+        respawnPoint=transform.position;
+        
     }
 
     private void Update()
     {
+        
         //พุ่ง
         if (isDashing)
         {
@@ -69,14 +79,14 @@ public class PlayerMovement : MonoBehaviour
         //เดิน
         horizontal = Input.GetAxisRaw("Horizontal");
         animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
-        if (rb.velocity.x != 0)
-        {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
+        //if (rb.velocity.x != 0)
+        //{
+        //    isMoving = true;
+        //}
+        //else
+        //{
+        //    isMoving = false;
+        //}
         //if (isMoving && IsGrounded())
         //{
         //    if (!audioSource.isPlaying)
@@ -191,11 +201,16 @@ public class PlayerMovement : MonoBehaviour
     //ชนสิ่งต่างๆ
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "deathZone")
+        if (other.gameObject.tag == "checkpoint")
         {
-            gameObject.transform.position = new Vector2(-4.27f, 1.85f);
-           
+            respawnPoint = transform.position;
+
         }
+        if (other.gameObject.tag == "fallpoint")
+        {
+            transform.position = respawnPoint;
+        }
+
         if (other.gameObject.tag == "redHP")
         {
             playerHealth = playerHealth - 1;
@@ -213,6 +228,19 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
+        if (other.gameObject.tag == "redbutton")
+        {
+            //Debug.Log("แดง");
+            redOrblue = 1;
+            //Debug.Log(redOrblue);
+
+        }
+        if (other.gameObject.tag == "bluebutton")
+        {
+            //Debug.Log("น้ำเงิน");
+            redOrblue = 2;
+            //Debug.Log(redOrblue);
+        }
     }
     //เส้นระยะ
     void OnDrawGizmos()
@@ -227,6 +255,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("ตาย");
             animator.SetBool("Death", true);
+
+        }
+        else if(playerHealth <= 3)
+        {
+            animator.SetBool("Death", false);
         }
 
         for (int i = 0; i < hearts.Length; i++)

@@ -12,9 +12,9 @@ public class redToblue : MonoBehaviour
     void Start()
     {
         playerMovement = Player.GetComponent<PlayerMovement>();
+       
         Redbutton = GameObject.FindGameObjectsWithTag("redbutton");
         Bluebutton = GameObject.FindGameObjectsWithTag("bluebutton");
-        //Debug.Log(Redbutton.Length);
     }
 
     // Update is called once per frame

@@ -10,6 +10,13 @@ public class move1to2 : MonoBehaviour
     public Transform[] points;
     private int i=0;
 
+    Animator animator;
+
+    private void Start()
+    {
+        animator = this.gameObject.GetComponent<Animator>();
+    }
+
     void Update()
     {
         
@@ -23,24 +30,30 @@ public class move1to2 : MonoBehaviour
         
 
     }
-    void OnTriggerEnter2D(Collider2D other){
-        if(other.gameObject.tag == "Player")
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
         {
-            i=1;
+            i = 1;
+            //animator.SetBool("hit", true);
         }
-        if(other.gameObject.tag == "pushable")
+        if (other.gameObject.tag == "pushable")
         {
-            i=1;
+            i = 1;
+            //animator.SetBool("hit", true);
         }
     }
+          
     void OnTriggerExit2D(Collider2D other){
         if(other.gameObject.tag == "Player")
         {
             i=0;
+            //animator.SetBool("hit", false);
         }
         if(other.gameObject.tag == "pushable")
         {
             i=0;
+            //animator.SetBool("hit", false);
         }
     }
 }

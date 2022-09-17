@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class popup : MonoBehaviour
 {
     private int test = 0;
-    public Text textpopup;
+    public Image textpopup;
     // Update is called once per frame
     void Update()
     {

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public int scene;
     public GameObject PauseUi;
     public GameObject deadUi;
+
     PlayerMovement playerMovement;
     [SerializeField] GameObject Player;
 

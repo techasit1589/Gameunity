@@ -40,14 +40,20 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsLadder;
     private bool isClimbing;
     private float inputVertical;
+    //โดนดาเมจ
+    private bool damaged=true;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private TrailRenderer tr;
 
+    
     void Start()
     {
+
+        
+
         animator = this.gameObject.GetComponent<Animator>();   
         animator.SetBool("Death", false);
         UpdateHealth();
@@ -213,9 +219,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.tag == "redHP")
         {
-            playerHealth = playerHealth - 1;
-            UpdateHealth();
-            soundmanager.PlaySound("hit");
+            if (damaged)
+            {
+                StartCoroutine(ExampleCoroutine());
+                playerHealth = playerHealth - 1;
+                UpdateHealth();
+                soundmanager.PlaySound("hit");
+            }           
             //Destroy(other.gameObject);
         }
         if (playerHealth < 3)
@@ -241,6 +251,9 @@ public class PlayerMovement : MonoBehaviour
             redOrblue = 2;
             //Debug.Log(redOrblue);
         }
+        
+
+        
     }
     //เส้นระยะ
     void OnDrawGizmos()
@@ -275,5 +288,13 @@ public class PlayerMovement : MonoBehaviour
                 //hearts[i].color = Color.black;
             }
         }
+    }
+    IEnumerator ExampleCoroutine()
+    {
+        
+        damaged=false;
+        yield return new WaitForSeconds(1);
+        damaged = true;
+       
     }
 }

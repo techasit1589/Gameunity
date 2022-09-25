@@ -5,11 +5,14 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public GameObject player;
+    public GameObject pointcam;
     public float offset;
     public float offsetSmoothing;
     private Vector3 playerPosition;
+    public int i=2;
 
-    // Start is called before the first frame update
+    
+
     void Start()
     {
         
@@ -18,7 +21,17 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerPosition = new Vector3(player.transform.position.x,transform.position.y, transform.position.z);
+        //Debug.Log(i);
+        if (i == 1)
+        {
+            playerPosition = new Vector3(pointcam.transform.position.x, transform.position.y, transform.position.z); ;
+        }
+        else if(i == 2)
+        {
+            playerPosition = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+        }
+
+        
 
         if(player.transform.localScale.x > 0f)
         {

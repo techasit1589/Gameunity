@@ -9,14 +9,21 @@ public class shooting : MonoBehaviour
 
     private Vector3 mousePos;
 
+    PlayerMovement playerMovement;
+    [SerializeField] GameObject Player;
+
     public GameObject bullet;
     public Transform bulletTransform;
     public bool canFire;
     private float timer;
     public float timeBetweenFiring;
 
+    private float rotZ;
+
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = Player.GetComponent<PlayerMovement>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
@@ -27,8 +34,14 @@ public class shooting : MonoBehaviour
 
         Vector3 rotation = mousePos - transform.position;
 
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x)*Mathf.Rad2Deg;
-
+        if (playerMovement.isFacingRight)
+        {
+            rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+        }
+        else if (!playerMovement.isFacingRight)
+        {
+            rotZ = Mathf.Atan2(-rotation.y, -rotation.x) * Mathf.Rad2Deg;
+        }
         transform.rotation=Quaternion.Euler(0,0,rotZ);
 
         if (!canFire)
@@ -43,6 +56,7 @@ public class shooting : MonoBehaviour
 
         if (Input.GetMouseButton(0) && canFire)
         {
+            soundmanager.PlaySound("shoot");
             canFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
         }

@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     private float speed = 8f;
     public float jumpingPower = 16f;
-    private bool isFacingRight = true;
+    public bool isFacingRight = true;
 
     //พุ่ง
     private bool canDash = true;

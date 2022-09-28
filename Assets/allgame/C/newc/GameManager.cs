@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        playerMovement=Player.GetComponent<PlayerMovement>();
+        Player = GameObject.FindGameObjectWithTag("Player");
+        playerMovement =Player.GetComponent<PlayerMovement>();
         Time.timeScale = 1;
         posbox = GameObject.FindGameObjectsWithTag("pushable");
         rebox = new Vector3[posbox.Length];

@@ -7,7 +7,7 @@ public class movo1to2 : MonoBehaviour
     public float speed;
     public Transform[] points;
 
-    private bool move;
+    private bool move=false;
 
     private bool stop;
 
@@ -19,31 +19,35 @@ public class movo1to2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (move && !stop)
         {
-            
-            StartCoroutine(ExampleCoroutine());
+            //Debug.Log("1");
             transform.position = Vector2.MoveTowards(transform.position, points[0].position, speed * Time.deltaTime);
+            StartCoroutine(ExampleCoroutine());
+
         }
-        else if(!move && stop)
+        else if (!move && stop)
         {
-            
-            StartCoroutine(test());
+            //Debug.Log("2");
             transform.position = Vector2.MoveTowards(transform.position, points[1].position, speed * Time.deltaTime);
+            StartCoroutine(test());
+            
         }
     }
     IEnumerator ExampleCoroutine()
     {
+        yield return new WaitForSeconds(3);
         stop = true;
-        move = false;
-        yield return new WaitForSeconds(5);
         
+        yield return new WaitForSeconds(3);
+        move = false;
     }
     IEnumerator test()
     {
-        move = true;
+        yield return new WaitForSeconds(3);
         stop = false;
-        yield return new WaitForSeconds(5);
-        
+        yield return new WaitForSeconds(3);
+        move = true;
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 //using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
@@ -42,6 +43,11 @@ public class PlayerMovement : MonoBehaviour
     private float inputVertical;
     //โดนดาเมจ
     private bool damaged=true;
+    //เดินได้ไหม
+    [SerializeField] public bool canMove=true;
+    //เก็บธนู
+    [SerializeField] public bool gotbow = false;
+    public GameObject Bow;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -51,9 +57,6 @@ public class PlayerMovement : MonoBehaviour
     
     void Start()
     {
-
-        
-
         animator = this.gameObject.GetComponent<Animator>();   
         animator.SetBool("Death", false);
         UpdateHealth();
@@ -64,7 +67,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        
+        if (gotbow)
+        {
+            
+        }
         //พุ่ง
         if (isDashing)
         {
@@ -82,55 +88,38 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("pushed", false);
         }
-        //เดิน
-        horizontal = Input.GetAxisRaw("Horizontal");
-        animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
-        //if (rb.velocity.x != 0)
-        //{
-        //    isMoving = true;
-        //}
-        //else
-        //{
-        //    isMoving = false;
-        //}
-        //if (isMoving && IsGrounded())
-        //{
-        //    if (!audioSource.isPlaying)
-        //    {
-        //        audioSource.Play();
-        //    }
-        //    else
-        //    {
-        //        audioSource.Stop();
-        //    }
-            
-        //    //soundmanager.PlaySound("walk");
-        //}
 
-        //กระโดด
-        animator.SetFloat("yVelocity", rb.velocity.y);
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (canMove)
         {
-            soundmanager.PlaySound("jump");
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
+            //เดิน
+            horizontal = Input.GetAxisRaw("Horizontal");
+            animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
 
-        if (IsGrounded())
-        {
-            animator.SetBool("Grounded", true);
-            animator.SetBool("Jump", false);
+            //กระโดด
+            animator.SetFloat("yVelocity", rb.velocity.y);
+            if (Input.GetButtonDown("Jump") && IsGrounded())
+            {
+                soundmanager.PlaySound("jump");
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            }
+
+            if (IsGrounded())
+            {
+                animator.SetBool("Grounded", true);
+                animator.SetBool("Jump", false);
+            }
+            else if (!IsGrounded())
+            {
+                animator.SetBool("Jump", true);
+                animator.SetBool("Grounded", false);
+            }
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && IsGrounded())
+            {
+                StartCoroutine(Dash());
+            }
+            //สลับหน้า
+            Flip();
         }
-        else if (!IsGrounded())
-        {
-            animator.SetBool("Jump", true);
-            animator.SetBool("Grounded", false);
-        }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && IsGrounded())
-        {
-            StartCoroutine(Dash());
-        }
-        //สลับหน้า
-        Flip();
         //ขึ้นบรรได
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, whatIsLadder);
         if (hitInfo.collider != null)
@@ -207,10 +196,38 @@ public class PlayerMovement : MonoBehaviour
     //ชนสิ่งต่างๆ
     void OnTriggerEnter2D(Collider2D other)
     {
+        //เก็บธนู
+        if (other.gameObject.tag == "bow")
+        {
+            soundmanager.PlaySound("Gotwin");
+            gotbow = true;
+            Bow.gameObject.SetActive(true);
+            Destroy(other.gameObject);
+        }
+        
+        //เก็บของรางวัล1
+        if (other.gameObject.tag == "reward1")
+        {
+            horizontal = 0;
+            animator.SetBool("Got", true);
+            soundmanager.PlaySound("Gotwin");
+            Destroy(other.gameObject);
+            canMove = false;
+            StartCoroutine(Enew());
+        }
+        //เก็บของรางวัล3
+        if (other.gameObject.tag == "reward3")
+        {
+            horizontal = 0;
+            animator.SetBool("Got3", true);
+            soundmanager.PlaySound("Gotwin");
+            Destroy(other.gameObject);
+            canMove = false;
+            StartCoroutine(Enew3());
+        }
         if (other.gameObject.tag == "checkpoint")
         {
             respawnPoint = transform.position;
-
         }
         if (other.gameObject.tag == "fallpoint")
         {
@@ -296,5 +313,17 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(1);
         damaged = true;
        
+    }
+    IEnumerator Enew()
+    {
+        yield return new WaitForSeconds(2);
+        animator.SetBool("Got", false);
+        canMove=true;
+    }
+    IEnumerator Enew3()
+    {
+        yield return new WaitForSeconds(2);
+        animator.SetBool("Got3", false);
+        canMove = true;
     }
 }

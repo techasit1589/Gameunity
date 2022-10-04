@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class soundmanager : MonoBehaviour
 {
-    public static AudioClip playerHitsound, walksound, jumpsound, healsound, hitsound, shootsound,bossdiesound;
+    public static AudioClip playerHitsound, walksound, jumpsound, healsound, hitsound, shootsound,bossdiesound,gotwin;
 
     static AudioSource audioSrc;
 
@@ -18,6 +18,7 @@ public class soundmanager : MonoBehaviour
         hitsound = Resources.Load<AudioClip>("hit");
         shootsound = Resources.Load<AudioClip>("shoot");
         bossdiesound = Resources.Load<AudioClip>("bossdie");
+        gotwin = Resources.Load<AudioClip>("Gotwin");
 
         audioSrc =GetComponent<AudioSource>();
     }
@@ -49,6 +50,9 @@ public class soundmanager : MonoBehaviour
                 break;
             case "bossdie":
                 audioSrc.PlayOneShot(bossdiesound);
+                break;
+            case "Gotwin":
+                audioSrc.PlayOneShot(gotwin);
                 break;
         }
     }

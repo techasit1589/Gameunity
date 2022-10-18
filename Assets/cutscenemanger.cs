@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class cutscenemanger : MonoBehaviour
 {
     public int scene;
+    public float timescene;
     
     void Update()
     {
@@ -14,7 +15,7 @@ public class cutscenemanger : MonoBehaviour
 
     IEnumerator ExampleCoroutine()
     {
-        yield return new WaitForSeconds(11);
+        yield return new WaitForSeconds(timescene);
         SceneManager.LoadScene(scene);
     }
 }

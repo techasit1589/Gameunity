@@ -45,6 +45,9 @@ public class PlayerMovement : MonoBehaviour
     private bool damaged=true;
     //เดินได้ไหม
     [SerializeField] public bool canMove=true;
+    //เก็บรางวัลแล้ว 1 2 3
+    //1
+    public bool gotreward1 = false;
     //เก็บธนู
     [SerializeField] public bool gotbow = false;
     public GameObject Bow;
@@ -193,6 +196,34 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //เก็บของรางวัล1
+        if (collision.gameObject.tag == "reward1" && IsGrounded())
+        {
+            gotreward1 = true;
+            horizontal = 0;
+            animator.SetBool("Jump", false);
+            animator.SetBool("Got", true);
+            soundmanager.PlaySound("Gotwin");
+            Destroy(collision.gameObject);
+            canMove = false;
+            StartCoroutine(Enew());
+        }
+        //เก็บของรางวัล3
+        if (collision.gameObject.tag == "reward3" && IsGrounded())
+        {
+            gotreward1 = true;
+            horizontal = 0;
+            animator.SetBool("Jump", false);
+            animator.SetBool("Got3", true);
+            soundmanager.PlaySound("Gotwin");
+            Destroy(collision.gameObject);
+            canMove = false;
+            StartCoroutine(Enew3());
+        }
+    }
     //ชนสิ่งต่างๆ
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -205,26 +236,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(other.gameObject);
         }
         
-        //เก็บของรางวัล1
-        if (other.gameObject.tag == "reward1")
-        {
-            horizontal = 0;
-            animator.SetBool("Got", true);
-            soundmanager.PlaySound("Gotwin");
-            Destroy(other.gameObject);
-            canMove = false;
-            StartCoroutine(Enew());
-        }
-        //เก็บของรางวัล3
-        if (other.gameObject.tag == "reward3")
-        {
-            horizontal = 0;
-            animator.SetBool("Got3", true);
-            soundmanager.PlaySound("Gotwin");
-            Destroy(other.gameObject);
-            canMove = false;
-            StartCoroutine(Enew3());
-        }
+        
         if (other.gameObject.tag == "checkpoint")
         {
             respawnPoint = transform.position;

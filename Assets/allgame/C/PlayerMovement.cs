@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
+//using static UnityEditor.Searcher.SearcherWindow.Alignment;
 //using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     //วิ่ง
     //private bool isMoving;
     Animator animator;
-    private float horizontal;
+    public float horizontal;
     private float speed = 8f;
     public float jumpingPower = 16f;
     public bool isFacingRight = true;
@@ -255,6 +255,28 @@ public class PlayerMovement : MonoBehaviour
                 UpdateHealth();
                 soundmanager.PlaySound("hit");
             }           
+            //Destroy(other.gameObject);
+        }
+        if (other.gameObject.tag == "lava")
+        {
+            if (damaged)
+            {
+                //StartCoroutine(ExampleCoroutine());
+                playerHealth = playerHealth - 3;
+                UpdateHealth();
+                //soundmanager.PlaySound("hit");
+            }
+            //Destroy(other.gameObject);
+        }
+        if (other.gameObject.tag == "Boss")
+        {
+            if (damaged)
+            {
+                //StartCoroutine(ExampleCoroutine());
+                playerHealth = playerHealth - 3;
+                UpdateHealth();
+                //soundmanager.PlaySound("hit");
+            }
             //Destroy(other.gameObject);
         }
         if (playerHealth < 3)

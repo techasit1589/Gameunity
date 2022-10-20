@@ -16,6 +16,7 @@ public class Next_Level : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = Player.GetComponent<PlayerMovement>();
+        
     }
     void OnTriggerEnter2D(Collider2D next)
     {

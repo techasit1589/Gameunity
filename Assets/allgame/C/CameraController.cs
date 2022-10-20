@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public GameObject player;
     public GameObject pointcam;
+    public GameObject pointboss;
     public float offset;
     public float offsetSmoothing;
     private Vector3 playerPosition;
@@ -30,10 +31,14 @@ public class CameraController : MonoBehaviour
         {
             playerPosition = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
         }
+        else if (i == 3)
+        {
+            playerPosition = new Vector3(pointboss.transform.position.x, transform.position.y, transform.position.z);
+        }
 
-        
 
-        if(player.transform.localScale.x > 0f)
+
+        if (player.transform.localScale.x > 0f)
         {
             playerPosition = new Vector3(playerPosition.x + offset, playerPosition.y, playerPosition.z);
         }

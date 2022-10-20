@@ -30,7 +30,7 @@ public class shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!playerMovement.canMove)
+        if (!playerMovement.canMove && playerMovement.gotreward1)
         {
             this.gameObject.SetActive(false);
         }

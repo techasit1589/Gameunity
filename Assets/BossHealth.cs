@@ -31,6 +31,7 @@ public class BossHealth : MonoBehaviour
     void Die()
     {
         soundmanager.PlaySound("bossdie");
+        musicBG.PlaySound("BG");
         GameObject effectt =  Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
         Destroy(effectt, 0.4f);

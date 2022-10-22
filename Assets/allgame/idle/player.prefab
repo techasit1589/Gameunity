@@ -292,7 +292,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  horizontal: 0
   jumpingPower: 15
+  isFacingRight: 1
   dashingPower: 3
   distance: 0.5
   boxMask:
@@ -301,6 +303,10 @@ MonoBehaviour:
   whatIsLadder:
     serializedVersion: 2
     m_Bits: 64
+  canMove: 1
+  gotreward1: 0
+  gotbow: 0
+  Bow: {fileID: 0}
   rb: {fileID: 4229026634927696142}
   groundCheck: {fileID: 4229026633209039608}
   groundLayer:
@@ -387,7 +393,7 @@ MonoBehaviour:
   - {x: -0.04918064, y: -0.14417973, z: 0}
   m_ShapePathHash: -807902094
   m_Mesh: {fileID: 0}
-  m_InstanceId: 75996
+  m_InstanceId: 111496
 --- !u!114 &1351724868084795455
 MonoBehaviour:
   m_ObjectHideFlags: 0

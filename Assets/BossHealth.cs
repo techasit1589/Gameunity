@@ -9,8 +9,12 @@ public class BossHealth : MonoBehaviour
 
     public GameObject deathEffect;
 
-   
+    public Vector2 bosspos;
 
+    private void Start()
+    {
+        bosspos = this.transform.position;
+    }
     public void TakeDamage(int damage)
     {
        

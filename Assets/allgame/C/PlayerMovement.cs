@@ -259,13 +259,12 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.gameObject.tag == "lava")
         {
-            if (damaged)
-            {
+            
                 //StartCoroutine(ExampleCoroutine());
                 playerHealth = playerHealth - 3;
                 UpdateHealth();
                 //soundmanager.PlaySound("hit");
-            }
+            
             //Destroy(other.gameObject);
         }
         if (other.gameObject.tag == "Boss")

@@ -36,7 +36,10 @@ public class onplayerhit : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            musicBG.PlaySound("BG");
             cameraController.i = 2;
+            block.SetActive(false);
+            boss.SetActive(false);
         }
     }
     IEnumerator wait()

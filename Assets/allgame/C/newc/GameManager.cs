@@ -14,15 +14,29 @@ public class GameManager : MonoBehaviour
     PlayerMovement playerMovement;
     [SerializeField] GameObject Player;
 
+    BossHealth bossHealth;
+    [SerializeField] GameObject boss;
+
     //จุดเกิดกล่อง
     private GameObject[] posbox;
     private Vector3[] rebox;
+
+    private GameObject[] arrow;
 
 
     void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         playerMovement =Player.GetComponent<PlayerMovement>();
+        
+        
+        
+        if(scene == 4)
+        {
+            bossHealth = boss.GetComponent<BossHealth>();
+        }
+        
+
         Time.timeScale = 1;
         posbox = GameObject.FindGameObjectsWithTag("pushable");
         rebox = new Vector3[posbox.Length];
@@ -34,9 +48,14 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
+        if (scene==4)
+        {
+            arrow = GameObject.FindGameObjectsWithTag("redHP");
+        }
+        
         //Debug.Log(playerMovement.playerHealth);
         //ตายแล้วหยุดเกม
-        if(playerMovement.playerHealth <= 0){
+        if (playerMovement.playerHealth <= 0){
             Time.timeScale = 0;
             deadUi.SetActive(true);          
         }else if(playerMovement.playerHealth <= 3)
@@ -75,6 +94,19 @@ public class GameManager : MonoBehaviour
     }
     public void Resetpoint()
     {
+        
+
+        if (scene == 4)
+        {
+            bossHealth.transform.position = bossHealth.bosspos;
+            bossHealth.health = 500;
+            for (int i = 0; i < arrow.Length; i++)
+            {
+                Destroy(arrow[i]);
+            }
+        }
+       
+
         playerMovement.playerHealth = 3;
         playerMovement.transform.position = playerMovement.respawnPoint;
         deadUi.SetActive(false);

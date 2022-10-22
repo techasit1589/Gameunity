@@ -23,7 +23,7 @@ public class Keyholder : MonoBehaviour
     public void AddKey(Key.KeyType keyType)
     {
         soundmanager.PlaySound("heal");
-        Debug.Log("Added Key: " + keyType);
+        //Debug.Log("Added Key: " + keyType);
         keyList.Add(keyType);
         OnKeysChanged?.Invoke(this, EventArgs.Empty);
     }

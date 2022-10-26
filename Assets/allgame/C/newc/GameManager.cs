@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
 
         if (scene == 4)
         {
-            bossHealth.transform.position = bossHealth.bosspos;
+            bossHealth.transform.position = new Vector2(60.9f, -3.2f);
             bossHealth.health = 500;
             for (int i = 0; i < arrow.Length; i++)
             {

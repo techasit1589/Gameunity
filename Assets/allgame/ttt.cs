@@ -18,13 +18,13 @@ public class ttt : MonoBehaviour
     {
        
 
-        if (transform.position.y < pos-0.3f)
+        if (transform.position.y < pos-0.2f)
         {
             
 
             test =true;
         }
-        else if(transform.position.y > pos+0.3f)
+        else if(transform.position.y > pos+0.2f)
         {
             
             test =false;

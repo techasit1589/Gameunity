@@ -316,7 +316,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerHealth <= 0)
         {
-            Debug.Log("ตาย");
+            //Debug.Log("ตาย");
             animator.SetBool("Death", true);
 
         }

@@ -58,7 +58,7 @@ public class shooting : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButton(0) && canFire)
+        if (Input.GetMouseButton(0) && canFire && playerMovement.playerHealth>=1)
         {
             soundmanager.PlaySound("shoot");
             canFire = false;

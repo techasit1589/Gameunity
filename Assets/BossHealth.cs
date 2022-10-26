@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossHealth : MonoBehaviour
 {
+    public GameObject area;
 
     public int health = 500;
 
@@ -13,7 +14,7 @@ public class BossHealth : MonoBehaviour
 
     private void Start()
     {
-        bosspos = this.transform.position;
+        //bosspos = 
     }
     public void TakeDamage(int damage)
     {
@@ -34,10 +35,11 @@ public class BossHealth : MonoBehaviour
 
     void Die()
     {
+        Destroy(gameObject);
         soundmanager.PlaySound("bossdie");
         musicBG.PlaySound("BG");
         GameObject effectt =  Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(area);
         Destroy(effectt, 0.4f);
     }
 

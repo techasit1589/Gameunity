@@ -1,0 +1,536 @@
+fileFormatVersion: 2
+guid: f722418dda8b85d42a57e874e62b5b3d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pusycatgeen_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 0
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a67a56ce543b50a409bc7817733a41ca
+      internalID: 687972440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3945d6687b5d2ff42a33f5970a12609d
+      internalID: 848709082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_2
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 0
+        width: 18
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 533bbc85a453b714fb9bb5056f4c2988
+      internalID: -75140106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_3
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 0
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52bb38c6122bc394b8f4036d5fcd3f33
+      internalID: -96567238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_6
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 16
+        width: 54
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1a5dd9383d495745be192945eb00983
+      internalID: -770887278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_11
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 13
+        width: 54
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0f0b9752b4c9544ae79e8ce35d04b4
+      internalID: 476112921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_58
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 17
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f88321e7d671dc948b393648d917b1ed
+      internalID: 1460870923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_4
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 16
+        width: 13
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 442dc28aade10ed46be14e5c0c1cb09f
+      internalID: -593076960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_5
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 16
+        width: 42
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4080af46107a304c868adfb18505f23
+      internalID: 19039785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_7
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 15
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eb5bea83578e5c4bb26c0af63e76e64
+      internalID: 1454998497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_8
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 9
+        width: 62
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b3155dc39b3afb458b463cfcfedd177
+      internalID: -1377322843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_9
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 7
+        width: 57
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5d42ea772dd29c46896fa6854f435cc
+      internalID: 1160447502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_10
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 9
+        width: 53
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3150aa198616b42b3a6f8f3d95ac54
+      internalID: -1554026800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_12
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 12
+        width: 56
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62658609afb6d2a4da7fed34accfd64d
+      internalID: -1791135777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_13
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 24
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aed6d89d0fa7f6545a7efed18db00d47
+      internalID: 714250028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pusycatgeen_14
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 28
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32053caf6521041448952bf9899f26de
+      internalID: 2125253835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      pusycatgeen_47: 919024840
+      pusycatgeen_2: -75140106
+      pusycatgeen_58: 1460870923
+      pusycatgeen_43: -2066597829
+      pusycatgeen_31: -1502079772
+      pusycatgeen_19: 2056941945
+      pusycatgeen_30: 178186187
+      pusycatgeen_42: 148298142
+      pusycatgeen_50: 2145801094
+      pusycatgeen_34: -341411635
+      pusycatgeen_37: -1762777720
+      pusycatgeen_5: 19039785
+      pusycatgeen_32: 436770151
+      pusycatgeen_54: -1807511337
+      pusycatgeen_63: 661086880
+      pusycatgeen_10: -1554026800
+      pusycatgeen_61: 450256266
+      pusycatgeen_53: -18944250
+      pusycatgeen_56: -166370615
+      pusycatgeen_36: 1673151122
+      pusycatgeen_40: -1131912924
+      pusycatgeen_14: 2125253835
+      pusycatgeen_57: 874049860
+      pusycatgeen_59: 1364716383
+      pusycatgeen_24: 1562809648
+      pusycatgeen_18: 1833269658
+      pusycatgeen_28: 1583692446
+      pusycatgeen_15: 793128391
+      pusycatgeen_45: 956851222
+      pusycatgeen_29: 1687854102
+      pusycatgeen_64: 391603556
+      pusycatgeen_4: -593076960
+      pusycatgeen_7: 1454998497
+      pusycatgeen_27: 735574043
+      pusycatgeen_26: -503303088
+      pusycatgeen_6: -770887278
+      pusycatgeen_17: 1438841399
+      pusycatgeen_62: 1631148114
+      pusycatgeen_1: 848709082
+      pusycatgeen_8: -1377322843
+      pusycatgeen_44: -689949786
+      pusycatgeen_65: -102648279
+      pusycatgeen_55: 1136034564
+      pusycatgeen_33: 1460357658
+      pusycatgeen_52: 719462506
+      pusycatgeen_3: -96567238
+      pusycatgeen_35: -201397332
+      pusycatgeen_22: -1671014533
+      pusycatgeen_38: 1459082958
+      pusycatgeen_11: 476112921
+      pusycatgeen_21: 1116003396
+      pusycatgeen_60: -371030647
+      pusycatgeen_0: 687972440
+      pusycatgeen_41: 561180570
+      pusycatgeen_16: 1285438414
+      pusycatgeen_13: 714250028
+      pusycatgeen_23: 2064677282
+      pusycatgeen_51: -1540151725
+      pusycatgeen_25: 452996892
+      pusycatgeen_49: 770028796
+      pusycatgeen_46: 1428441743
+      pusycatgeen_39: -281635773
+      pusycatgeen_9: 1160447502
+      pusycatgeen_12: -1791135777
+      pusycatgeen_20: -781583386
+      pusycatgeen_48: -663450
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

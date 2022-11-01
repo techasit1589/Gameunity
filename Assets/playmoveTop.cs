@@ -111,6 +111,7 @@ public class playmoveTop : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         animator.SetBool("Got", false);
+        yield return new WaitForSeconds(1f);
         canMove = true;
     }
     IEnumerator bufftime()

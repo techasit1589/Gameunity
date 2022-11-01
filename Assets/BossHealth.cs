@@ -12,9 +12,19 @@ public class BossHealth : MonoBehaviour
 
     public Vector2 bosspos;
 
+    GameManager gameManager;
+    [SerializeField] GameObject manager;
+
+    volumTest volumTestt;
+    [SerializeField] GameObject volumm;
+
     private void Start()
     {
-        //bosspos = 
+        manager = GameObject.FindGameObjectWithTag("pushable");
+        gameManager = manager.GetComponent<GameManager>();
+
+        volumm = GameObject.FindGameObjectWithTag("Cmusic");
+        volumTestt = volumm.GetComponent<volumTest>();
     }
     public void TakeDamage(int damage)
     {
@@ -35,9 +45,10 @@ public class BossHealth : MonoBehaviour
 
     void Die()
     {
+        gameManager.bossnotdie=false;
         Destroy(gameObject);
+        volumTestt.scene = 11;
         soundmanager.PlaySound("bossdie");
-        musicBG.PlaySound("BG");
         GameObject effectt =  Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(area);
         Destroy(effectt, 0.4f);

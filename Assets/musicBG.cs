@@ -9,6 +9,8 @@ public class musicBG : MonoBehaviour
 
     static AudioSource audioSrc;
 
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,8 @@ public class musicBG : MonoBehaviour
         audioSrc.clip = BGsound;
         audioSrc.Play();
     }
+   
+
 
 
     public static void PlaySound(string clip)

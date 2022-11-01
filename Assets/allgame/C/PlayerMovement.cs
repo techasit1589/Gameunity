@@ -1,3 +1,4 @@
+using BarthaSzabolcs.Tutorial_SpriteFlash;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
@@ -8,6 +9,9 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //โดนดาเมจ
+    [SerializeField] private SimpleFlash flashEffect;
+    //[SerializeField] private KeyCode flashKey;
     //ปุ่มแดงน้ำเงิน
     public int redOrblue= 1;
       
@@ -250,6 +254,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (damaged)
             {
+                flashEffect.Flash();
                 StartCoroutine(ExampleCoroutine());
                 playerHealth = playerHealth - 1;
                 UpdateHealth();
@@ -343,7 +348,7 @@ public class PlayerMovement : MonoBehaviour
     {
         
         damaged=false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.2f);
         damaged = true;
        
     }

@@ -14,10 +14,16 @@ public class onplayerhit : MonoBehaviour
     PlayerMovement playerMovement;
     [SerializeField] GameObject Player;
 
+    volumTest volumTestt;
+    [SerializeField] GameObject volumm;
+
     private void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         playerMovement = Player.GetComponent<PlayerMovement>();
+
+        volumm = GameObject.FindGameObjectWithTag("Cmusic");
+        volumTestt = volumm.GetComponent<volumTest>();
 
         cameraController = Ccam.GetComponent<CameraController>();
     }
@@ -26,7 +32,8 @@ public class onplayerhit : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            musicBG.PlaySound("Fboss");
+            volumTestt.scene = 5;
+            //musicBG.PlaySound("Fboss");
             StartCoroutine(wait());
             block.SetActive(true);
             boss.SetActive(true);   

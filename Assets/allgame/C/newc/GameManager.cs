@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject[] arrow;
 
+    public bool bossnotdie = true;
 
     void Awake()
     {
@@ -96,7 +97,7 @@ public class GameManager : MonoBehaviour
     {
         
 
-        if (scene == 4)
+        if (scene == 4 && bossnotdie)
         {
             bossHealth.transform.position = new Vector2(60.9f, -3.2f);
             bossHealth.health = 500;

@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 1351724868084795439}
   - component: {fileID: 1351724868084795431}
   - component: {fileID: 1351724868084795455}
+  - component: {fileID: 4838262050780993015}
   m_Layer: 8
   m_Name: player
   m_TagString: Player
@@ -285,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897325d36ab35fc4582029f8a2f087fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flashEffect: {fileID: 0}
   redOrblue: 1
   respawnPoint: {x: 0, y: 0, z: 0}
   playerHealth: 3
@@ -393,7 +395,7 @@ MonoBehaviour:
   - {x: -0.04918064, y: -0.14417973, z: 0}
   m_ShapePathHash: -807902094
   m_Mesh: {fileID: 0}
-  m_InstanceId: 111496
+  m_InstanceId: 66904
 --- !u!114 &1351724868084795455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,3 +408,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fddd86d511cc04990a618bac6c7491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4838262050780993015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4229026634927696139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb50e78f678190408b087c078bc1de9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashMaterial: {fileID: 2100000, guid: 318da5c8f54141846b8a8c0d7b59ae47, type: 2}
+  duration: 0.2

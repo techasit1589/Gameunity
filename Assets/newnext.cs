@@ -9,7 +9,6 @@ public class newnext : MonoBehaviour
     {
         if (next.gameObject.tag == "Player")
         {
-            Debug.Log("ด่านต่อไป");
             StartCoroutine(NextLevel());
         }
     }

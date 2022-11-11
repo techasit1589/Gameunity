@@ -290,7 +290,8 @@ public class PlayerMovement : MonoBehaviour
                 soundmanager.PlaySound("heal");
                 playerHealth = playerHealth + 1;
                 UpdateHealth();
-                Destroy(other.gameObject);
+                other.gameObject.SetActive(false);
+                //Destroy(other.gameObject);
             }
         }
         if (other.gameObject.tag == "redbutton")

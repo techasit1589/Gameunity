@@ -25,15 +25,19 @@ public class GameManager : MonoBehaviour
 
     public bool bossnotdie = true;
 
+    private GameObject[] itemhp;
+
     void Awake()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         playerMovement =Player.GetComponent<PlayerMovement>();
-        
-        
-        
+        if(scene == 2)
+        {
+            itemhp = GameObject.FindGameObjectsWithTag("healhp");
+        }
         if(scene == 4)
         {
+            itemhp = GameObject.FindGameObjectsWithTag("healhp");
             bossHealth = boss.GetComponent<BossHealth>();
         }
         
@@ -96,9 +100,16 @@ public class GameManager : MonoBehaviour
     public void Resetpoint()
     {
         
-
+        if(scene == 2){
+            for (int i = 0; i < itemhp.Length; i++){
+                itemhp[i].SetActive(true);
+            }
+        }
         if (scene == 4 && bossnotdie)
         {
+            for (int i = 0; i < itemhp.Length; i++){
+                itemhp[i].SetActive(true);
+            }
             bossHealth.transform.position = new Vector2(60.9f, -3.2f);
             bossHealth.health = 500;
             for (int i = 0; i < arrow.Length; i++)

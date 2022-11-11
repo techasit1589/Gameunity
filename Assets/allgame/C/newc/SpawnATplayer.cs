@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class SpawnATplayer : MonoBehaviour
 {
@@ -9,12 +10,6 @@ public class SpawnATplayer : MonoBehaviour
     public float timeToSpawn;
 
     private float currentTimeToSpawn;
-
-
-    void Start()
-    {
-        //Instantiate(objectToSpawn,transform.position,transform.rotation);
-    }
 
     // Update is called once per frame
     void Update()
